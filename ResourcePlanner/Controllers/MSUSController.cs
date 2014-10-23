@@ -17,6 +17,13 @@ namespace ResourcePlanner.Controllers
             return View(db.Persons.OrderBy(p => p.Name).ToList());
         }
 
+        // GET: MSUS/Autocomplete
+        public ActionResult Autocomplete(string term)
+        {
+            string[] people = db.Persons.Select(p => p.Name.ToUpper()).ToArray();
+            return this.Json(people.Where(p => p.StartsWith(term.ToUpper())), JsonRequestBehavior.AllowGet);
+        }
+
         // GET: MSUS/Details/5
         public ActionResult Details(int id)
         {

@@ -32,6 +32,10 @@ namespace ResourcePlanner.Models
         public int DepartmentID { get; set; }
         public Department Department { get; set; }
         public int TaskID { get; set; }
+        [Display(Name = "Color")]
+        public string ProjectColor { get; set; }
+        [Display(Name = "Short Code")]
+        public string ProjectShortCode { get; set; }
         public virtual ICollection<Task> Tasks { get; set; }
     }
 }
